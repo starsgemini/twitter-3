@@ -1,0 +1,1 @@
+<a href="<?php echo $data['authURL']; ?>" title="Authorize this app with your twitter account">Authorize</a>
