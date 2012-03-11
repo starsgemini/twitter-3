@@ -57,4 +57,17 @@ class Twt
         echo $err;
         die();
     }
+
+    //data[pageTitle] is html page title
+    function render($data, $layout = 'default') {
+        if (is_array($data)) {
+            extract($data);
+        }
+
+        include('templates/common/header.php');
+        if (file_exists('templates/'.$layout.'.php')) {
+            include('templates/'.$layout.'.php');
+        }
+        include('templates/common/footer.php');
+    }
 }

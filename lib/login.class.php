@@ -17,9 +17,7 @@ class login extends Twt
 
             $data['authURL'] = $this->tmhOAuth->url("oauth/authorize", '') . "?oauth_token={$oauth['oauth_token']}";
             $data['pageTitle'] = 'Sign In';
-            include('templates/common/header.php');
-            include('templates/login.php');
-            include('templates/common/footer.php');
+            $this->render($data, 'login');
         } else {
             $this->showError('Twitter is unresponsive :/');
         }
@@ -72,5 +70,13 @@ class login extends Twt
         }
 
         unset($_SESSION['access_token']);
+    }
+
+    function logout() {
+        $this->user->delete;
+
+        setcookie('id', '', time() - 3600, '/');
+        setcookie('hash', '', time() - 3600, '/');
+        header('Location: '.config('base_path'));
     }
 }
