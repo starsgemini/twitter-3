@@ -9,10 +9,10 @@ class Timeline extends Twt
     }
 
     function getTweets() {
-        $code = $this->tmhOAuth->request('GET', $this->tmhOAuth->url('1/statuses/friends_timeline'), array(
+        $code = $this->tmhOAuth->request('GET', $this->tmhOAuth->url('1/statuses/home_timeline'), array(
           'include_entities' => '1',
           'include_rts'      => '1',
-          'count'            => 30,
+          'count'            => 20,
         ));
 
         if ($code == 200) {

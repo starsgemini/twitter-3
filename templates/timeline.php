@@ -6,7 +6,19 @@
         $entified_tweet = tmhUtilities::entify($tweet);
         ?>
         <div class="tweet">
-            <?php echo $entified_tweet ?>
+            <div class="profile-pic"><img src="<?php echo $tweet['user']['profile_image_url']; ?>" alt=""></div>
+            <div class="text">
+                <a href="#" class="username"><?php echo $tweet['user']['name']; ?></a>
+                <?php echo $entified_tweet ?>
+            </div>
+            <div class="controls">
+                <ul>
+                    <li><a href="#">Reply</a></li>
+                    <li><a href="#">Reply All</a></li>
+                    <li><a href="#">RT</a></li>
+                    <li><a href="#">Fav</a></li>
+                </ul>
+            </div>
         </div>
         <?php
     } ?>
