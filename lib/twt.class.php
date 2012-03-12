@@ -2,13 +2,13 @@
 class Twt
 {    
     function __construct($controller) {
-        $this->currentPage = $controller;
-        $this->preDispatch();
-
         $this->tmhOAuth = new tmhOAuth(array(
             'consumer_key' => config('consumer_key'),
             'consumer_secret' => config('consumer_secret')
         ));
+
+        $this->currentPage = $controller;
+        $this->preDispatch();
     }
 
     function checkUser() {
@@ -22,10 +22,12 @@ class Twt
             $this->generateUserHash($tempUser);
 
             if ( ($tempUser->sess_hash == $this->user->sess_hash ) && ( $this->user->sess_hash == $_COOKIE['hash']) ) {
+                $this->tmhOAuth->config['user_token'] = $this->user->token;
+                $this->tmhOAuth->config['user_secret'] = $this->user->secret;
                 return true;
             }
         }
-        //echo 'false'; die();
+
         return false;
     }
 
