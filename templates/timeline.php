@@ -10,6 +10,7 @@
             <div class="text">
                 <a href="#" class="username"><?php echo $tweet['user']['name']; ?></a>
                 <?php echo $entified_tweet ?>
+                <span class="timestamp"><a href="<?php echo config('base_path').'t/view/'.$tweet['id_str']; ?>"><?php echo $tweet['created_at']; ?></a></span>
             </div>
             <div class="controls">
                 <ul>

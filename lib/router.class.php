@@ -15,7 +15,7 @@ class Router {
             die();
         }
 
-        if (!isset($action[2])) {
+        if (!isset($action[2]) || ($action[2] == '') ) {
             $method = 'index';
         }else {
             $method = explode('?', $action[2]);
