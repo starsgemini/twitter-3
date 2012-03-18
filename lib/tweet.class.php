@@ -16,7 +16,7 @@ class tweet extends Twt
                 return($tweet);
             } else {
                 //tmhUtilities::pr($this->tmhOAuth->response);
-                $this->showError('can\'t get tweet. Sure it exists?');
+                $this->showError($code);
             }
         }
     }
@@ -24,6 +24,7 @@ class tweet extends Twt
     function reply($id) {
         $tweet = $this->view($id); //render and get tweet
 
+        $data['tweet'] = $tweet;
         $data['page_title'] = 'reply to ';
         $data['id'] = $id;
         $data['entities'] = $tweet['entities'];

@@ -56,7 +56,13 @@ class Twt
     }
 
     function showError($err) {
-        echo $err;
+        $errors = config('ERRORS');
+        if ( isset($errors[$err]) ) {
+            echo $errors[$err];
+        } else {
+            echo $err;
+        }
+
         die();
     }
 
