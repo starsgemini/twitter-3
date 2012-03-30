@@ -4,7 +4,7 @@
     <a href="#" class="username"><?php echo $tweet['user']['screen_name']; ?></a>
     <?php
     $user_url = config('base_path').'u/view/';
-    $tweet['text'] = preg_replace('/\B@([a-z0-9_]+)/i', '<a href="'.$user_url.'$1">$1</a>', $tweet['text']);
+    $tweet['text'] = preg_replace('/\B@([a-z0-9_]+)/i', '<a href="'.$user_url.'$1">@$1</a>', $tweet['text']);
     echo $tweet['text'];
     ?>
     <span class="timestamp"><a
@@ -16,6 +16,10 @@
         <a href="<?php echo config('base_path') . 't/view/' . $tweet['in_reply_to_status_id_str']; ?>">in reply to <?php echo $tweet['in_reply_to_screen_name']; ?></a>
     </span>
     <?php } ?>
+
+    <div class="meta">
+        <span class="source">via <?php echo $tweet['source']; ?></span>
+    </div>
 
 </div>
 <div class="controls">

@@ -31,4 +31,24 @@ class tweet extends Twt
 
         $this->render($data, 'reply');
     }
+
+    function create() {
+        if ( (!isset($_POST['tweet'])) || ($_POST['tweet'] == '') ) {
+            $this->showError(2);
+        }
+
+        $status = htmlentities($_POST['tweet']);
+        $reply_to = ctype_digit($_POST['in-reply-to']) ? $_POST['in-reply-to'] : '';
+
+        $code = $this->tmhOAuth->request('POST', $this->tmhOAuth->url('1/statuses/update'), array(
+          'status' => $status,
+          'in_reply_to_status_id' => $reply_to
+        ));
+
+        if ($code == 200) {
+            header('Location: '.config('base_path'));
+        } else {
+            $this->showError(3);
+        }
+    }
 }

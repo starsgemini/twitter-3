@@ -18,6 +18,5 @@ function __autoload($class_name)
 
 $router = new Router();
 $requestURI = explode('/', $_SERVER['REQUEST_URI']);
-var_dump($requestURI);
 
 $router->load($requestURI);
