@@ -1,7 +1,7 @@
 <div class="profile-pic"><img src="<?php echo $tweet['user']['profile_image_url'] ?>"
                               alt="<?php echo $tweet['user']['name']; ?>"></div>
 <div class="text">
-    <a href="#" class="username"><?php echo $tweet['user']['screen_name']; ?></a>
+    <a href="<?php echo '/u/view/'.$tweet['user']['screen_name']; ?>" class="username"><?php echo $tweet['user']['screen_name']; ?></a>
     <?php
     $user_url = config('base_path').'u/view/';
     $tweet['text'] = preg_replace('/\B@([a-z0-9_]+)/i', '<a href="'.$user_url.'$1">@$1</a>', $tweet['text']);

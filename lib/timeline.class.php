@@ -4,7 +4,7 @@ class Timeline extends Twt
 {
     function index() {
         $data['tweets'] = $this->getTweets();
-        $data['pageTitle'] = 'timeline';
+        $data['page_title'] = 'timeline';
         $this->render($data, 'timeline');
     }
 
