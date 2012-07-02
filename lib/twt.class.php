@@ -66,6 +66,18 @@ class Twt
         die();
     }
 
+    function getRequestLimit() {
+        $code = $this->tmhOAuth->request('GET', $this->tmhOAuth->url('1/account/rate_limit_status'), array(
+        ));
+
+        if ($code == 200) {
+            $rate = json_decode($this->tmhOAuth->response['response'], true);
+            return $rate;
+        } else {
+            return false;
+        }
+    }
+
     //data[pageTitle] is html page title
     function render($data, $layout = 'default') {
         if (is_array($data)) {
