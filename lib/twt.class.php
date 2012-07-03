@@ -9,6 +9,9 @@ class Twt
 
         $this->currentPage = $controller;
         $this->preDispatch();
+
+        //TODO: grab this from user options
+        date_default_timezone_set('Etc/GMT+5.30');
     }
 
     function checkUser() {
@@ -83,6 +86,8 @@ class Twt
         if (is_array($data)) {
             extract($data);
         }
+
+        $rate_data = $this->getRequestLimit();
 
         include('templates/common/header.php');
         if (file_exists('templates/'.$layout.'.php')) {

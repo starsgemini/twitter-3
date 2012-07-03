@@ -1,8 +1,19 @@
-<?php include('common/main_menu.php'); print_r($relationship); ?>
+<?php include('common/main_menu.php');
+
+//TODO: get ban info and other stuff from here
+$following = $relationship['relationship']['target']['following'];
+$followed_by = $relationship['relationship']['target']['followed_by'];
+
+$follow_verb = $following ? 'Unfollow' : 'Follow';
+?>
 
 <div class="user-utils">
     <ul>
-        <li>Follow</li>
+        <li>
+            <a href="/user/<?php echo strtolower($follow_verb); ?>/">
+                <?php echo $follow_verb;  ?> <span class="followback-info">&mdash; <?php echo $user; echo $followed_by ? ' is' : ' is not' ?> following you</span>
+            </a>
+        </li>
     </ul>
 </div>
 

@@ -376,6 +376,14 @@ class tmhOAuth {
     }
   }
 
+  private function log($url)  {
+      $file = "log_api_calls.txt";
+      $content = file_get_contents($file);
+      $content .= date('j F Y h:i:s A')." $url\n";
+
+      file_put_contents($file, $content);
+  }
+
   /**
    * Make an HTTP request using this library. This method doesn't return anything.
    * Instead the response should be inspected directly.
@@ -387,6 +395,7 @@ class tmhOAuth {
    * @param string $multipart whether this request contains multipart data. Default false
    */
   function request($method, $url, $params=array(), $useauth=true, $multipart=false) {
+    $this->log($url);
     $this->config['multipart'] = $multipart;
 
     $this->create_nonce();
