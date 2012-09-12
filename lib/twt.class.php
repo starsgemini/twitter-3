@@ -11,7 +11,7 @@ class Twt
         $this->preDispatch();
 
         //TODO: grab this from user options
-        date_default_timezone_set('Etc/GMT+5.30');
+        date_default_timezone_set('Asia/Colombo');
     }
 
     function checkUser() {
