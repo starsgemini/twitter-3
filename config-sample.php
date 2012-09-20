@@ -1,4 +1,6 @@
 <?php
+namespace App;
+use Idiorm\ORM as ORM;
 
 ORM::configure('mysql:host=DBHOST;dbname=DBNAME');
 ORM::configure('username', 'USER');

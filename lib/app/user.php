@@ -5,6 +5,8 @@
  * I need to plan these things better
  *
  */
+namespace App;
+
 class user extends Twt
 {
     function index()

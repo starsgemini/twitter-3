@@ -1,8 +1,11 @@
 <?php
+namespace App;
+use Idiorm\ORM as ORM;
+
 class Twt
 {    
     function __construct($controller) {
-        $this->tmhOAuth = new tmhOAuth(array(
+        $this->tmhOAuth = new \tmh\tmhOAuth(array(
             'consumer_key' => config('consumer_key'),
             'consumer_secret' => config('consumer_secret')
         ));
@@ -18,7 +21,7 @@ class Twt
         if (isset($_COOKIE['id']) && isset($_COOKIE['hash'])) {
             $this->user = ORM::for_table('twt_users')->where('id', $_COOKIE['id'])->find_one();
 
-            $tempUser = new stdClass();
+            $tempUser = new \stdClass();
             $tempUser->handle = $this->user->handle;
             $tempUser->agent = substr($_SERVER['HTTP_USER_AGENT'], 0, 150);
             $tempUser->id = $_COOKIE['id'];

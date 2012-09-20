@@ -1,4 +1,6 @@
 <?php
+namespace App;
+
 class Router {
     function load($action)
     {
@@ -6,7 +8,7 @@ class Router {
         if (array_key_exists($action[1], $routes)) {
             $cont = $routes[$action[1]];
         } else {
-            $err = new Twt(false);
+            $err = new App\Twt(false);
             $err->showError(404);
         }
 
@@ -17,7 +19,8 @@ class Router {
             $method = $method[0];
         }
 
-        $controller = new $cont($cont);
+        $namespaced_cont = 'App\\'.$cont;
+        $controller = new $namespaced_cont($cont);
         if (isset($action[3])) {
             $params = explode('?', $action[3]);
             $params = $params[0];
