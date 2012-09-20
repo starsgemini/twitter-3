@@ -5,10 +5,10 @@
       Modernizr = window.Modernizr;
 
   
-  $.fn.foundationAlerts           ? $doc.foundationAlerts() : null;
-  $.fn.foundationAccordion        ? $doc.foundationAccordion() : null;
-  $.fn.foundationTooltips         ? $doc.foundationTooltips() : null;
-  $('input, textarea').placeholder();
+  //$.fn.foundationAlerts           ? $doc.foundationAlerts() : null;
+  //$.fn.foundationAccordion        ? $doc.foundationAccordion() : null;
+  //$.fn.foundationTooltips         ? $doc.foundationTooltips() : null;
+  //$('input, textarea').placeholder();
   
   
   $.fn.foundationButtons          ? $doc.foundationButtons() : null;
@@ -20,14 +20,14 @@
   $.fn.foundationTopBar           ? $doc.foundationTopBar() : null;
   
   
-  $.fn.foundationMediaQueryViewer ? $doc.foundationMediaQueryViewer() : null;
+  //$.fn.foundationMediaQueryViewer ? $doc.foundationMediaQueryViewer() : null;
   
     
-    $.fn.foundationTabs             ? $doc.foundationTabs() : null;
+  //$.fn.foundationTabs             ? $doc.foundationTabs() : null;
     
   
   
-    $("#featured").orbit();
+  //$("#featured").orbit();
   
 
   // UNCOMMENT THE LINE YOU WANT BELOW IF YOU WANT IE8 SUPPORT AND ARE USING .block-grids
