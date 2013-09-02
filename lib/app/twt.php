@@ -73,7 +73,7 @@ class Twt
     }
 
     function getRequestLimit() {
-        $code = $this->tmhOAuth->request('GET', $this->tmhOAuth->url('1/account/rate_limit_status'), array(
+        $code = $this->tmhOAuth->request('GET', $this->tmhOAuth->url('1.1/account/rate_limit_status'), array(
         ));
 
         if ($code == 200) {

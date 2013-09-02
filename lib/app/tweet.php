@@ -6,7 +6,7 @@ class tweet extends Twt
     function view($id = false)
     {
         if ($id) {
-            $code = $this->tmhOAuth->request('GET', $this->tmhOAuth->url('1/statuses/show'), array(
+            $code = $this->tmhOAuth->request('GET', $this->tmhOAuth->url('1.1/statuses/show'), array(
                 'id' => $id,
                 'include_entities' => true
             ));
@@ -41,7 +41,7 @@ class tweet extends Twt
         $status = htmlentities($_POST['tweet']);
         $reply_to = ctype_digit($_POST['in-reply-to']) ? $_POST['in-reply-to'] : '';
 
-        $code = $this->tmhOAuth->request('POST', $this->tmhOAuth->url('1/statuses/update'), array(
+        $code = $this->tmhOAuth->request('POST', $this->tmhOAuth->url('1.1/statuses/update'), array(
           'status' => $status,
           'in_reply_to_status_id' => $reply_to
         ));

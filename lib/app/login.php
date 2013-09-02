@@ -1,5 +1,6 @@
 <?php
 namespace App;
+use Idiorm\ORM as ORM;
 
 class login extends Twt
 {
@@ -48,7 +49,7 @@ class login extends Twt
     function createUser() {
         $this->tmhOAuth->config['user_token'] = $_SESSION['access_token']['oauth_token'];
         $this->tmhOAuth->config['user_secret'] = $_SESSION['access_token']['oauth_token_secret'];
-        $code = $this->tmhOAuth->request('GET', $this->tmhOAuth->url('1/account/verify_credentials'));
+        $code = $this->tmhOAuth->request('GET', $this->tmhOAuth->url('1.1/account/verify_credentials'));
 
         if ($code == 200) {
             $response = json_decode($this->tmhOAuth->response['response']);

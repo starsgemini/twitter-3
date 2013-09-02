@@ -17,7 +17,7 @@ class user extends Twt
     function view($user)
     {
         $user = htmlspecialchars($user);
-        $code = $this->tmhOAuth->request('GET', $this->tmhOAuth->url('1/statuses/user_timeline'), array(
+        $code = $this->tmhOAuth->request('GET', $this->tmhOAuth->url('1.1/statuses/user_timeline'), array(
             'screen_name' => $user,
             'count' => 20,
         ));
@@ -37,7 +37,7 @@ class user extends Twt
 
     function getRelationship($user, $target)
     {
-        $code = $this->tmhOAuth->request('GET', $this->tmhOAuth->url('1/friendships/show'), array(
+        $code = $this->tmhOAuth->request('GET', $this->tmhOAuth->url('1.1/friendships/show'), array(
             'source_screen_name' => $user,
             'target_screen_name' => $target,
         ));

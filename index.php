@@ -1,9 +1,5 @@
 <?php
 session_start();
-/*
-require 'lib/idiorm.php';
-require 'lib/tmhOAuth.php';
-require 'lib/tmhUtilities.php';*/
 
 function __autoload($class_name)
 {
